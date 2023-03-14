@@ -5,9 +5,11 @@ import json
 import glob
 import os
 
+path = os.environ.get('PROJECT_PATH', '..')
+
 
 def max_name_pkl():
-    path = os.path.expanduser('~/airflow_hw')
+    # path = os.path.expanduser('~/airflow_hw')
     pkl_list = path + '/data/models/*.pkl'
     pkl_date = []
     for elem in glob.glob(pkl_list):
@@ -17,7 +19,7 @@ def max_name_pkl():
 
 def predict():
     # <YOUR_CODE>
-    path = os.path.expanduser('~/airflow_hw')
+    # path = os.path.expanduser('~/airflow_hw')
     name_pkl = max_name_pkl()
     with open(f'{path}/data/models/cars_pipe_{name_pkl}.pkl', 'rb') as file:
         model = dill.load(file)
